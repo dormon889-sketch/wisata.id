@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jelajah Nusantara</title>
+    <title>Gerbang Menuju Kedamaian</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="logo">NUSANTARA</div>
-    </nav>
-    <header class="hero">
+
+    <!-- Tampilan Awal (Hero) -->
+    <section id="hero">
         <div class="hero-content">
-            <h1>Gerbang Menuju Kedamaian.</h1>
+            <h1>Gerbang<br>Menuju<br>Kedamaian.</h1>
             <p>Rekomendasi wisata terbaik di seluruh penjuru Nusantara.</p>
-            <a href="#" class="btn-main">Mulai Jelajah</a>
+            <button class="btn-explore" id="btnExplore">MULAI JELAJAH</button>
         </div>
-    </header>
+    </section>
+
+    <!-- Konten Wisata -->
+    <main id="main-content" class="hidden">
+        <div id="destinations-container"></div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
