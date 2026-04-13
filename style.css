@@ -1,38 +1,24 @@
-/* Container pembungkus foto agar bisa digeser */
-.photo-slider {
-    display: flex;
-    overflow-x: auto; /* Aktifkan geser kanan-kiri */
-    scroll-snap-type: x mandatory;
-    gap: 15px;
-    padding-bottom: 10px;
-    scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+body { margin: 0; background: black; color: white; font-family: sans-serif; overflow-x: hidden; }
+
+#hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.8s ease; }
+#hero h1 { font-size: 3.5rem; text-align: center; }
+
+.btn-explore { padding: 15px 40px; border: 1px solid white; background: none; color: white; cursor: pointer; letter-spacing: 2px; }
+.btn-explore:hover { background: white; color: black; }
+
+#main-content { padding: 50px 5%; max-width: 1200px; margin: 0 auto; }
+.hidden { display: none; }
+
+.destination-card { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: 1s ease; }
+.destination-card.muncul { opacity: 1; transform: translateY(0); }
+
+.photo-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; scrollbar-width: none; }
+.photo-slider::-webkit-scrollbar { display: none; }
+
+.photo-slider img { flex: 0 0 90%; height: 400px; object-fit: cover; border-radius: 15px; scroll-snap-align: center; }
+
+@media (max-width: 768px) {
+    #hero h1 { font-size: 2.5rem; }
+    .photo-slider img { height: 280px; }
 }
 
-.photo-slider::-webkit-scrollbar {
-    display: none; /* Sembunyikan scrollbar di Chrome/Safari */
-}
-
-.photo-slider img {
-    flex: 0 0 85%; /* Gambar besar, ambil 85% lebar layar */
-    height: 400px; /* Ukuran tinggi gambar */
-    object-fit: cover;
-    border-radius: 12px;
-    scroll-snap-align: center;
-    border: 1px solid #333;
-}
-
-.destination-card {
-    padding: 40px 20px;
-    border-bottom: 1px solid #222;
-}
-
-.dest-info h2 {
-    font-size: 2rem;
-    margin-bottom: 8px;
-}
-
-.dest-info p {
-    font-size: 1rem;
-    color: #bbb;
-    margin-bottom: 20px;
-}
