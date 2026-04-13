@@ -1,14 +1,14 @@
-const listWisata = [
-    { nama: "Raja Ampat", desc: "Keindahan bawah laut Papua.", foto: ["https://picsum.photos", "https://picsum.photos", "https://picsum.photos"] },
-    { nama: "Gunung Bromo", desc: "Lautan pasir yang menakjubkan.", foto: ["https://picsum.photos", "https://picsum.photos", "https://picsum.photos"] },
-    { nama: "Borobudur", desc: "Kemegahan candi bersejarah.", foto: ["https://picsum.photos", "https://picsum.photos", "https://picsum.photos"] },
-    { nama: "Labuan Bajo", desc: "Surga di Nusa Tenggara Timur.", foto: ["https://picsum.photos0", "https://picsum.photos1", "https://picsum.photos2"] },
-    { nama: "Ubud, Bali", desc: "Ketenangan di tengah sawah.", foto: ["https://picsum.photos3", "https://picsum.photos4", "https://picsum.photos5"] },
-    { nama: "Danau Toba", desc: "Danau vulkanik terbesar.", foto: ["https://picsum.photos6", "https://picsum.photos7", "https://picsum.photos8"] },
-    { nama: "Nusa Penida", desc: "Tebing laut yang ikonik.", foto: ["https://picsum.photos9", "https://picsum.photos0", "https://picsum.photos1"] },
-    { nama: "Wakatobi", desc: "Taman nasional bawah laut.", foto: ["https://picsum.photos2", "https://picsum.photos3", "https://picsum.photos4"] },
-    { nama: "Kawah Ijen", desc: "Api biru yang langka.", foto: ["https://picsum.photos5", "https://picsum.photos6", "https://picsum.photos7"] },
-    { nama: "Derawan", desc: "Berenang bersama penyu.", foto: ["https://picsum.photos8", "https://picsum.photos9", "https://picsum.photos0"] }
+const daftarWisata = [
+    { judul: "Tana Toraja", desc: "Warisan budaya luhur dengan rumah adat Tongkonan yang megah.", foto: ["toraja1.jpg", "toraja2.jpg", "toraja3.jpg"] },
+    { judul: "Gunung Bromo", desc: "Lautan pasir luas dengan kawah aktif dan matahari terbit yang magis.", foto: ["bromo1.jpg", "bromo2.jpg", "bromo3.jpg"] },
+    { judul: "Raja Ampat", desc: "Surga tropis bawah laut dengan kejernihan air laut kristal yang indah.", foto: ["raja1.jpg", "raja2.jpg", "raja3.jpg"] },
+    { judul: "Candi Borobudur", desc: "Mahakarya sejarah dunia dengan relief kuno yang penuh ketenangan.", foto: ["borobudur1.jpg", "borobudur2.jpg", "borobudur3.jpg"] },
+    { judul: "Labuan Bajo", desc: "Gerbang petualangan naga purba Komodo dan pantai berwarna merah muda.", foto: ["bajo1.jpg", "bajo2.jpg", "bajo3.jpg"] },
+    { judul: "Ubud, Bali", desc: "Pusat ketenangan jiwa yang dikelilingi hutan hijau dan sawah asri.", foto: ["ubud1.jpg", "ubud2.jpg", "ubud3.jpg"] },
+    { judul: "Nusa Penida", desc: "Tebing tinggi Kelingking Beach yang ikonik di tepi samudera hindia.", foto: ["penida1.jpg", "penida2.jpg", "penida3.jpg"] },
+    { judul: "Danau Toba", desc: "Danau vulkanik raksasa dengan udara sejuk dan kekayaan budaya Batak.", foto: ["toba1.jpg", "toba2.jpg", "toba3.jpg"] },
+    { judul: "Kawah Ijen", desc: "Fenomena langka api biru dan kawah asam berwarna hijau toska.", foto: ["ijen1.jpg", "ijen2.jpg", "ijen3.jpg"] },
+    { judul: "Wakatobi", desc: "Taman nasional bawah laut dengan terumbu karang terbaik di dunia.", foto: ["wakatobi1.jpg", "wakatobi2.jpg", "wakatobi3.jpg"] }
 ];
 
 const btn = document.getElementById('btnExplore');
@@ -17,28 +17,31 @@ const main = document.getElementById('main-content');
 const container = document.getElementById('container-wisata');
 
 btn.onclick = () => {
-    // Animasi hero hilang
+    // Animasi Keluar
     hero.style.opacity = '0';
+    hero.style.transform = 'translateY(-30px)';
+    
     setTimeout(() => {
         hero.style.display = 'none';
         main.classList.remove('hidden');
-        main.style.opacity = '1';
         
-        // Munculkan list wisata satu per satu
-        listWisata.forEach((w, i) => {
+        daftarWisata.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'destination-card';
             card.innerHTML = `
-                <h2>${w.nama}</h2>
-                <p>${w.desc}</p>
-                <div class="photo-grid">
-                    <img src="${w.foto[0]}"> <img src="${w.foto[1]}"> <img src="${w.foto[2]}">
+                <div class="dest-info">
+                    <h2>${item.judul}</h2>
+                    <p>${item.desc}</p>
+                </div>
+                <div class="photo-slider">
+                    <img src="${item.foto[0]}" alt="Slide 1">
+                    <img src="${item.foto[1]}" alt="Slide 2">
+                    <img src="${item.foto[2]}" alt="Slide 3">
                 </div>
             `;
             container.appendChild(card);
-            
-            // Delay agar munculnya bergantian (natural)
-            setTimeout(() => card.classList.add('muncul'), i * 300);
+            setTimeout(() => card.classList.add('muncul'), index * 300);
         });
     }, 800);
 };
+        
