@@ -17,7 +17,6 @@ const main = document.getElementById('main-content');
 const container = document.getElementById('container-wisata');
 
 btn.onclick = () => {
-    // Animasi Keluar
     hero.style.opacity = '0';
     hero.style.transform = 'translateY(-30px)';
     
@@ -28,6 +27,8 @@ btn.onclick = () => {
         daftarWisata.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'destination-card';
+            
+            // PERBAIKAN: Memanggil foto satu per satu berdasarkan urutan di array
             card.innerHTML = `
                 <div class="dest-info">
                     <h2>${item.judul}</h2>
@@ -44,4 +45,4 @@ btn.onclick = () => {
         });
     }, 800);
 };
-        
+    
